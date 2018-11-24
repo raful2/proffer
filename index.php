@@ -10,7 +10,7 @@
 
     <title>Proferta Página Oficial</title>
   </head>
-  <body>
+  <body background="">
    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
 
@@ -27,18 +27,18 @@
                     <div class="shape6"></div>
                     <div class="shape7"></div>
                     <div class="float">
-                        <form class="form" method='post' action="login/">
-                            <div class="form-group">
-                                <label for="username" class="text-white">CPF:</label><br>
-                                <input type="number" name="username" id="username" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="text-white">Senha:</label><br>
-                                <input type="password" name="password" id="password" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
-                            </div>
+                    <form class="form" method='post' action="login/">
+                        <div class="form-group">
+                            <label for="username" class="text-white">CPF:</label><br>
+                            <input type="number" name="username" id="username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-white">Senha:</label><br>
+                            <input type="password" name="password" id="password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                        </div>
                         </form>
                     </div>
                 </div>

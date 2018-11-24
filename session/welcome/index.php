@@ -31,11 +31,10 @@ require_once("../../connection/connection.class.php");
   <div class='collapse navbar-collapse' id='navbarTogglerDemo02'>
     <ul class='navbar-nav mr-auto mt-2 mt-lg-0'>
       <li class='nav-item active'>
-        <a class='nav-link' href='../../'>Login <span class='sr-only'>(current)</span></a>
+       <form action='../../login/' method='POST'><table><tr><td><input  name='username' type='number'></td><td><input class='nav' type='password' name='password'></td><td><input class='btn btn-success' type='submit' value='Fazer login'></td></tr></table>
+        </form>
       </li>
-      <li class='nav-item'>
-        <a class='nav-link disabled' href='#'>Disabled</a>
-      </li>
+   
     </ul>
     <form class='form-inline my-2 my-lg-0'>
       <input class='form-control mr-sm-2' type='search' placeholder='Procurar produto'>
@@ -69,7 +68,15 @@ require_once("../../connection/connection.class.php");
       </li>
       <a class='navbar-brand' href='#'></a>
       <li class='nav-item'>
-        <form class='nav' action='./my_prod/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-warning' type='submit' value='Meus Produtos'></form>
+        <form class='nav' action='./my_prod/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-warning' type='submit' value='Meus Produtos'></form>
+      </li>
+           <a class='navbar-brand' href='#'></a>
+      <li class='nav-item'>
+        <form class='nav' action='./my_deals/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-dark' type='submit' value='Minhas Vendas'></form>
+      </li>
+         <a class='navbar-brand' href='#'></a>
+      <li class='nav-item'>
+        <form class='nav' action='./my_deals2/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-dark' type='submit' value='Minhas Compras'></form>
       </li>
     </ul>
     <form class='form-inline my-2 my-lg-0'>
@@ -155,8 +162,9 @@ echo "        <div class='col-md-4'>
                         <div class='card' style='width: 18rem'>
                           <img class='card-img-top' src=".$value['url']." alt='Card image cap'>
                           <div class='card-body' style='width: 100%'>
-                              <h4 class='card-title'>".$value['pnome']."</h4>
-                              <div style='background-color: lightgrey' class='card'>Anunciante:<h5 class='card-title'>  ".$value['uname']."</h5></div>
+                              <div style='background-color: lightgreen' class='card'><h4 class='card-title'>".$value['pnome']."</h4></div>
+                              <div style='background-color: lightgrey' class='card'>
+                              Anunciante:<h5 class='card-title'>  ".$value['uname']."</h5></div>
                               <p class='card-text'>".$value['descript']."</p>
                               <p class='card-text'> <h4>R$ ".number_format((float)$value['valor'], 2, ',', '.')." - <s>". number_format((float)$value['valor'], 2, ',', '.')."</s></h4></p>
                               <form action='../../details/prod/' method='POST'>

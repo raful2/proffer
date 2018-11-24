@@ -68,6 +68,10 @@ require_once("../../../connection/connection.class.php");
       <li class='nav-item'>
        <form class='nav' method='post' action='./'><input name='user' type='hidden' value='".$_SESSION['id']."'> <input class=' btn btn-outline-success disabled' type='submit' value='Vender um produto.'></form>
       </li>
+        <a class='navbar-brand' href='#'></a>
+      <li class='nav-item'>
+        <form class='nav' action='./my_deals/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-warning' type='submit' value='Minhas Vendas'></form>
+      </li>
       <li class='nav-item'>
         <a class='nav-link disabled' href='#'>Disabled</a>
       </li>
@@ -145,6 +149,7 @@ if ($uploadOk == 0) {
           $dir_to_db = $dir_to_db . basename($_FILES["fileToUpload"]['name']);
           var_dump($dir_to_db);
           $sql_insert = "INSERT INTO prod (nome,qtd,valor,id_user,descript,url) VALUES (:nome,:qtd,:valor,:owner,:descript,:url)";
+          
           $stm_insert = $con->prepare($sql_insert);
         $stm_insert->bindParam(':nome', $_POST['prod_name']);
           $stm_insert->bindParam(':qtd',$_POST['qtd']);

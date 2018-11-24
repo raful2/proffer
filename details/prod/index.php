@@ -34,7 +34,7 @@ require_once("../../connection/connection.class.php");
         <a class='nav-link' href='../../'>Login <span class='sr-only'>(current)</span></a>
       </li>
       <li class='nav-item'>
-        <a class='nav-link disabled' href='#'>Cadastre um Produto ou Serviço.</a>
+        <a class='nav-link disabled' href=''>Cadastre um Produto ou Serviço.</a>
       </li>
       <li class='nav-item'>
         <a class='nav-link disabled' href='#'>Disabled</a>
@@ -68,13 +68,22 @@ require_once("../../connection/connection.class.php");
       </li>
      <a class='navbar-brand' href='#'></a>  
       <li class='nav-item'>
-       <form class='nav' method='post' action='./'><input name='user' type='hidden' value='".$_SESSION['id']."'> <input class=' btn btn-outline-success disabled' type='submit' value='Vender um produto.'></form>
+       <form class='nav' method='post' action='../../session/welcome/add_prod/'><input name='user' type='hidden' value='".$_SESSION['id']."'> <input class=' btn btn-outline-success' type='submit' value='Vender um produto.'></form>
       </li>
       <a class='navbar-brand' href='#'></a>
         <li class='nav-item'>
-        <form class='nav' action='../../session/welcome/my_prod/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-warning' type='submit' value='Meus Produtos'></form>
+        <form class='nav' action='../../session/welcome/my_prod/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-warning' type='submit' value='Meus Produtos'></form>
       </li>
-     
+      <a class='navbar-brand' href='#'></a>
+
+      <li>
+        <form class='nav' action='../session/welcome/my_deals/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-dark' type='submit' value='Minhas Vendas'></form>
+          </li>
+            <a class='navbar-brand' href='#'></a>
+
+      <li>
+        <form class='nav' action='../../session/welcome/my_deals2/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-dark' type='submit' value='Minhas Compras'></form>
+          </li>
     </ul>
     <form class='form-inline my-2 my-lg-0' acto>
       <input class='form-control mr-sm-2' type='search' placeholder='Procurar produto'>
