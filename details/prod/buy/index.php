@@ -179,7 +179,7 @@ if($value['id_user'] == $_POST['session']){
        $stm_qtd = $con->prepare($sql_qtd);
        $stm_qtd->bindValue(1,$_POST['prod']);
       $stm_qtd->execute();
-      $data_locale = new DateTimeZone("Brazil/East");
+      
       $hoje = getdate();
      
      $dia       = $hoje['mday'];
@@ -188,9 +188,16 @@ if($value['id_user'] == $_POST['session']){
      $hora      = $hoje['hours'];
      $minuto    = $hoje['minutes'];
      $segundos  =$hoje['seconds'];
-
-      $data_conv = "".$ano."/".$mes."/".$dia." ".$hora.":".$minuto.":".$segundos."" ;
-    
+     $data = array('dia' => $dia,
+                   'mes' => $mes,
+                   'ano' => $ano,
+                   'sec' => $segundos,
+                   'min' => $minuto,
+                   'hora' => $hora,
+                         );  
+     var_dump($data);
+     // $data_conv = $ano."/".$mes."/".$dia." ".$hora.":".$minuto.":".$segundos;
+    $data_conv = "now()";
       
       $sql_nome1 = "SELECT nome from userr WHERE cpf = ?";
       $stm_nome1 = $con->prepare($sql_nome1);

@@ -73,7 +73,7 @@ require_once("../../../connection/connection.class.php");
       </li>
            <a class='navbar-brand' href='#'></a>
       <li class='nav-item'>
-        <form class='nav' action='./' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-dark' type='button' value='Minhas Vendas'></form>
+        <form class='nav' action='./' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input disabled class='btn btn-dark' type='button' value='Minhas Vendas'></form>
       </li>
         <a class='navbar-brand' href='#'></a>
       <li class='nav-item'>
@@ -129,18 +129,17 @@ $stm_qtd->execute();
 
  
  echo "
-  <div class='row'>
-     <div class='table'>
-      <table class='table-hover'><tr class='' align='center'><td>ID</td><td>DATA DA COMPRA</td><td> DESCRIÇÃO</td></tr>
+  
+    
+      <table class='table table-hover'><tr style='background-color:lightgray' align='center'><td>ID</td><td>DATA DA COMPRA</td><td> DESCRIÇÃO</td></tr>
       ";
     foreach ($row as $key => $value) {
     # code...
        
-echo "<tr align='center'><td><b>". $value['sid']."</td><td>".$value['dat'] ."</td><td>".$value['descript']."</td><tr><br>"; 
+echo "<tr align='center'><td><b>". $value['sid']."</td><td>".$value['dat'] ."</td><td>".$value['descript']."</td></tr><br>"; 
 }
-echo "<table>
- 	   </div>
-   </div>";
+echo "</table>
+ 	   ";
 }
 
 

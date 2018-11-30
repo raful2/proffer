@@ -1,4 +1,10 @@
 
+.body, #body {
+    background-image: url("../image/bg.jpg");
+    background-repeat: no-repeat;
+    background-color: #cccccc;
+}
+
 .box {
     width: 500px;
     margin: 200px 0;

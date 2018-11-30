@@ -110,11 +110,7 @@ require_once("../../../connection/connection.class.php");
   <?php
 
   
-  $sql_qtd = "SELECT * FROM prod WHERE id_user = ?";
-  $stm_qtd = $con->prepare($sql_qtd);
-  $stm_qtd->bindValue(1,$_SESSION['id']);
-$stm_qtd->execute();
-  $row = $stm_qtd->fetchAll();
+ 
 
 if(!isset($_SESSION['id'])){
   echo "";
@@ -124,6 +120,11 @@ echo " necessario estar logado";
 exit();
     
 }else{
+   $sql_qtd = "SELECT * FROM prod WHERE id_user = ?";
+  $stm_qtd = $con->prepare($sql_qtd);
+  $stm_qtd->bindValue(1,$_SESSION['id']);
+$stm_qtd->execute();
+  $row = $stm_qtd->fetchAll();
   $stm_qtd->execute();
   $row = $stm_qtd->fetchAll();
 
@@ -131,14 +132,14 @@ exit();
 
  echo " <div class='row'>
  <div class='container'>
- <div class='row'>";
+  <div class='row'>";
     foreach ($row as $key => $value) {
     
       // var_dump($value['url']);
-echo "      
-              <div class='col-md-4' style='height: 100px'>
+echo "     
+              <div class='col-md-4' >
                 <div class='card mb>
-                     <img class='card-img-top' src='." . $value['url'] . "' alt=''>
+                     <img class='card-img-top' src='..".$value['url']."'>
                       <div class='card-body mb'>
                         <h5 class='card-title'>".$value['nome']."</h5>
                         <p class='card-text'>".$value['descript']."</p>
@@ -149,6 +150,10 @@ echo "
                         <form method='POST' action='./delete/' > 
                             <input name='prod' value='".$value['id']."' type='hidden'>
                             <input class='btn btn-danger sm'  value='Excluir' type='submit'>
+                        </form>
+                        <form method='POST' action='./alter/' > 
+                            <input name='prod' value='".$value['id']."' type='hidden'>
+                            <input class='btn btn-warning sm'  value='Alterar Detalhes' type='submit'>
                         </form>
                         </p>
                 
@@ -165,6 +170,8 @@ echo "
 }
 echo "</div>
 
+</div>
+</div>
 </div>
 ";
 

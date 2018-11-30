@@ -124,7 +124,7 @@ echo "
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>";
    
 }else{
-   $sql_prod = "SELECT prod.nome as nome, userr.nome as uname, prod.id_user, prod.id,prod.descript,prod.valor, prod.url FROM prod JOIN userr ON prod.id_user = userr.cpf  WHERE prod.id = ?";
+   $sql_prod = "SELECT prod.nome as nome, userr.nome as uname, prod.id_user,prod.qtd, prod.id,prod.descript,prod.valor, prod.url FROM prod JOIN userr ON prod.id_user = userr.cpf  WHERE prod.id = ?";
   $stm_prod = $con->prepare($sql_prod);
   $stm_prod->bindValue(1,$_POST['prod']);
   
@@ -141,6 +141,7 @@ echo " <div class='container' align='center'>
   <div class='card-body'>
     <h4 class='card-title'>".$value['nome']."</h4>
     Anunciante: <h5 class='card-title'>".$value['uname']."</h5>
+    <p class='card-text'> Em estoque: ".$value['qtd']."</p>
     <p class='card-text'>".$value['descript']."</p>
         <p class='card-text'> R$".number_format((float)$value['valor'], 2, ',', '.')."</p>
 

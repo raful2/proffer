@@ -33,6 +33,7 @@
 		$stm_decr->bindValue(2,$_SESSION['id']);
 		$stm_decr->execute();
 		echo "Produto decrementado. -1 <a class='btn btn-primary' href='../'> Clique aqui para voltar aos seus produtos</a>";
+		header("Location: ../");
 
 
 
@@ -44,6 +45,7 @@
 		$stm_decr->bindValue(2,$_SESSION['id']);
 		$stm_decr->execute();
 		echo "Produto excluido. <a class='btn btn-primary' href='../'> Clique aqui para voltar aos seus produtos</a>";
+		header("Location: ../");
 	}
 
 

@@ -1,11 +1,16 @@
 <?php 
 include '../Cliente/Cliente.class.php';
 
-$user = new User();
-$user->setCPF($_POST['username']);
-$user->setSenha($_POST['password']);
+if( !(isset($_POST['username'])) || !(isset($_POST['password'])) ){
+	echo "Digite algo nos campos. <a class='btn btn-danger' href='../'> voltar</a>";
+	exit();
+}else{
+	$user = new User();
 
-$user->agree_login($user->getCPF(),$user->getSenha());
+
+$user->agree_login($_POST['username'],$_POST['password']);
+}
+
 
 
 ?>

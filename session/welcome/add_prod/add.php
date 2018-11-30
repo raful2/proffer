@@ -45,7 +45,7 @@ require_once("../../../connection/connection.class.php");
   </div>
 </nav>";
     }else{
-       $sql_qtd = "SELECT profile_img, nome, saldo FROM userr WHERE cpf = ?";
+        $sql_qtd = "SELECT profile_img, nome, saldo FROM userr WHERE cpf = ?";
   $stm_qtd = $con->prepare($sql_qtd);
   $stm_qtd->bindValue(1,$_SESSION['id']);
 
@@ -53,7 +53,7 @@ require_once("../../../connection/connection.class.php");
   $stm_qtd->execute();
   $row = $stm_qtd->fetchAll();
   foreach ($row as $key => $value) {
-    echo " <img width='50px' height='50px' src='".$value['profile_img']."'> Bem Vindo(a) ". $value['nome'] . " aproveite seus creditos! "    . " <div class='btn btn-primary'> R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</div>";
+    echo " <img width='50px' height='50px' src='".$value['profile_img']."'> Bem Vindo(a) > <b> ". $value['nome'] . " </b> > aproveite seus creditos! "    . " <div class='btn btn-primary'> R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</div>";
     echo "<a class='navbar-brand' href='#'></a>
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarTogglerDemo02' aria-controls='navbarTogglerDemo02' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
@@ -62,18 +62,23 @@ require_once("../../../connection/connection.class.php");
   <div class='collapse navbar-collapse' id='navbarTogglerDemo02'>
     <ul class='navbar-nav mr-auto mt-2 mt-lg-0'>
       <li class='nav-item active'>
-        <a class='btn btn-danger' href='logout.php'>Sair <span class='sr-only'>(current)</span></a>
+        <a class='btn btn-danger' href='../logout.php'>Sair <span class='sr-only'>(current)</span></a>
       </li>
-     <a class='navbar-brand' href='#'></a>  
+    <a class='navbar-brand' href='#'></a>
       <li class='nav-item'>
-       <form class='nav' method='post' action='./'><input name='user' type='hidden' value='".$_SESSION['id']."'> <input class=' btn btn-outline-success disabled' type='submit' value='Vender um produto.'></form>
+       <form class='nav' method='post' action='../add_prod'><input name='user' type='hidden' value='".$_SESSION['id']."'> <input class='btn btn-outline-success' type='submit' value='Vender um produto.'></form>
       </li>
-        <a class='navbar-brand' href='#'></a>
+      <a class='navbar-brand' href='#'></a>
       <li class='nav-item'>
-        <form class='nav' action='./my_deals/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-warning' type='submit' value='Minhas Vendas'></form>
+        <form class='nav' action='../my_prod/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-warning' type='submit' value='Meus Produtos'></form>
       </li>
+           <a class='navbar-brand' href='#'></a>
       <li class='nav-item'>
-        <a class='nav-link disabled' href='#'>Disabled</a>
+        <form class='nav' action='../my_deals/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-dark' type='submit' value='Minhas Vendas'></form>
+      </li>
+         <a class='navbar-brand' href='#'></a>
+      <li class='nav-item'>
+        <form class='nav' action='../my_deals2/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-dark' type='submit' value='Minhas Compras'></form>
       </li>
     </ul>
     <form class='form-inline my-2 my-lg-0'>
@@ -83,7 +88,8 @@ require_once("../../../connection/connection.class.php");
   </div>
 </nav>";
   }
-    }
+}
+
 
   
  
