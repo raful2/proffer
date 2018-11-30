@@ -116,8 +116,8 @@ if(!isset($_SESSION['id'])){
   echo "";
  
     # code...
-echo " necessario estar logado";
-exit();
+    echo " necessario estar logado";
+    exit();
     
 }else{
    $sql_qtd = "SELECT * FROM prod WHERE id_user = ?";
@@ -137,16 +137,17 @@ $stm_qtd->execute();
     
       // var_dump($value['url']);
 echo "     
-              <div class='col-md-4' >
-                <div class='card mb>
-                     <img class='card-img-top' src='..".$value['url']."'>
+              <div class='col-md-3' >
+                <div class='card'  style='width: 18rem; height: 40rem'>
+                     <img width='200px' height='200px' class='card-img-top' src='..".$value['url']."'>
                       <div class='card-body mb'>
-                        <h5 class='card-title'>".$value['nome']."</h5>
-                        <p class='card-text'>".$value['descript']."</p>
-                        <p class='card-text'> <b>Em estoque ".$value['qtd']."</b></p>
-                        <p class='card-text'>".number_format((float)$value['valor'], 2, ',', '.')." - 
-                        <s>". number_format((float)$value['valor'], 2, ',', '.')."</s>
+                        <div><h5 class='card-title'>".$value['nome']."</h5></div>
+                        <div ><p class='card-text'>".$value['descript']."</p></div>
+                        <div > <p class='card-text'> <b>Em estoque ".$value['qtd']."</b></p></div>
+                        <div >De:<s>". number_format((float)$value['valor'], 2, ',', '.')."</s></div>
+                        <div > Por:<p class='card-text'>".number_format((float)$value['valor'], 2, ',', '.')." </div>
                         </p>
+                        <div class='shadow-lg p-3 mb-5 bg-white rounded'>
                         <form method='POST' action='./delete/' > 
                             <input name='prod' value='".$value['id']."' type='hidden'>
                             <input class='btn btn-danger sm'  value='Excluir' type='submit'>
@@ -155,6 +156,7 @@ echo "
                             <input name='prod' value='".$value['id']."' type='hidden'>
                             <input class='btn btn-warning sm'  value='Alterar Detalhes' type='submit'>
                         </form>
+                        </div>
                         </p>
                 
                   </div>

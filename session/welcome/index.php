@@ -157,22 +157,23 @@ echo "</div></div></div>";
   <div class='row'>
       <div class='container'>
          <div class='row'>";
-    foreach ($row as $key => $value) {
+    foreach ($row as $key => $value) {  
       
-      $line = preg_split("/[\r\n]+/", $value['descript'], 1);
+      $line = preg_split("/[\r\n]+/", $value['descript'], 3);
       array_pop($line);
     # code...
      
 echo "        <div class='col-md-4'>
                     <div class='card-group' align='center'>
-                        <div class='card' style='width: 18rem; height: 30rem'>
-                          <img class='card-img-top' src=".$value['url']." alt='Card image cap'>
+                        <div class='card' style='width: 18rem; height: 40rem'>
+                          <img class='card-img-top' src='.".$value['url']."' alt='Card image cap'>
                           <div class='card-body' style='width: 100%'>
                               <div style='background-color: lightgreen' class='card'><h4 class='card-title'>".$value['pnome']."</h4></div>
                               <div style='background-color: lightgrey' class='card'>
                               Anunciante:<h5 class='card-title'>  ".$value['uname']."</h5></div>
-                              <p class='card-text'>".implode($line)."</p>
-                              <p class='card-text'> <h4>R$ ".number_format((float)$value['valor'], 2, ',', '.')." - <s>". number_format((float)$value['valor'], 2, ',', '.')."</s></h4></p>
+                              <div class='card'><p class='card-text'>".implode($line)."<br></p></div>
+                              <div class='card-item' >De:<p class='card-text'><s>". number_format((float)$value['valor'], 2, ',', '.')."</s></p></div>
+                              <div > Por:<p class='card-text'>".number_format((float)$value['valor'], 2, ',', '.')." </div>
                               <form action='../../details/prod/' method='POST'>
                                 <input name='prod' type='hidden' value='".$value['id']."'>
                                 <input name='owner' type='hidden' value='".$value['id_user']."'> 

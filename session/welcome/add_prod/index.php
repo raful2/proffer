@@ -51,7 +51,7 @@ require_once("../../../connection/connection.class.php");
   $stm_qtd->execute();
   $row = $stm_qtd->fetchAll();
   foreach ($row as $key => $value) {
-    echo " <img width='50px' height='50px' src='../".$value['profile_img']."'> Bem Vindo(a) <b>". $value['nome'] . "</b> aproveite seus creditos! "    . " <div class='btn btn-primary'> R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</div>";
+    echo " <img width='50px' height='50px' src='../".$value['profile_img']."'> <b>". $value['nome'] . "</b>  "    . " <div class='btn'><font color='green'> <b>R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</font></b></div>";
     echo "<a class='navbar-brand' href='#'></a>
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarTogglerDemo02' aria-controls='navbarTogglerDemo02' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
@@ -103,7 +103,7 @@ require_once("../../../connection/connection.class.php");
   <p>Compre e Venda, Produtos e Serviços.</p> 
 </div>
 
-<div class="container" >
+<div class='container' style="width: 55vh">
   <!-- VISUALIZANDO PRODUTOS DE TODOS -->
   <?php
   if(!isset($_SESSION['id'])){
@@ -132,11 +132,21 @@ require_once("../../../connection/connection.class.php");
             <!-- Subject -->
             <label>Categoria</label>
             <select required name='category' class='browser-default custom-select mb-4'>
-                <option value='' disabled>Escolha</option>
-                <option value='Beleza' selected> Beleza </option>
+                <option value='' selected>Escolha</option>
+                <option value='Animais'>Animais</option>
+                <option value='Agricolas'>Agricolas</option>
                 <option value='Automoveis'>Automoveis</option>
-                <option value='Cursos'>Conhecimento</option>
+                <option value='Bebidas'>Bebidas</option>
+                <option value='Beleza' >Beleza</option>
+                <option value='Cosmeticos'>Cosméticos</option>
+                <option value='Cursos'>Cursos</option>
+                <option value='Fitness'>Fitness</option>
                 <option value='Limpeza'>Limpeza</option>
+                <option value='Saude'>Saúde</option>
+
+
+
+
             </select>
 
             <!-- Message -->
