@@ -127,7 +127,7 @@ if(!isset($_SESSION['id'])){
 echo "      
               <div class='col-md-4'>
                 <div class='card mb'>
-                     <img class='card-img-top' src='" . $value['url'] . "' alt='s'>
+                     <img class='card-img-top' src='." . $value['url'] . "' alt='s'>
                       <div class='card-body mb'>
                         <h5 class='card-title'>".$value['pnome']."</h5>
                         <div style='background-color: lightgrey' class='card'>Anunciante:<h5 class='card-title'>  ".$value['uname']."</h5></div>

@@ -25,13 +25,15 @@ require_once("../connection/connection.class.php");
     $con = $conObj->getConnection();
     if(!isset($_SESSION['id'])){
      echo " ";
-     echo "<a class='navbar-brand'  href='#'></a>
+     echo "
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarTogglerDemo02' aria-controls='navbarTogglerDemo02' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
   </button>
 
   <div  class='collapse navbar-collapse' id='navbarTogglerDemo02'> 
+  <a class='navbar-brand'  href='../session/welcome'><img width='50' height='50' src='../image/home.png'></a>
     <ul class='navbar-nav mr-auto mt-2 mt-lg-0'>
+    <li class='nav-item active'></li>
       <li class='nav-item active'>
        <form class='nav' action='../login/' method='POST'><table><tr><td><input class='form-control'  name='username' type='number'></td><td><input class='form-control' type='password' name='password'></td><td><input class='btn btn-primary' type='submit' value='Fazer login'></td></tr></table>
         </form>
