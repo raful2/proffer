@@ -23,7 +23,7 @@ require_once("../../../connection/connection.class.php");
     $con = $conObj->getConnection();
    // $_SESSION['id'] = $_POST['user'];
     if(!isset($_SESSION['id'])){
-     echo "  Bem Vindo Visitante.";
+     echo "  Bem Vindo Visitante. <a href='../../../> Registre-se! </a>";
      echo "<a class='navbar-brand' href='#'></a>
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarTogglerDemo02' aria-controls='navbarTogglerDemo02' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>

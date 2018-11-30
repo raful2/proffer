@@ -35,13 +35,16 @@ require_once("../../connection/connection.class.php");
       <li class='nav-item active'>
        <form class='nav' action='../../login/' method='POST'><table><tr><td><input class='form-control'  name='username' type='number'></td><td><input class='form-control' type='password' name='password'></td><td><input class='btn btn-primary' type='submit' value='Fazer login'></td></tr></table>
         </form>
+       
       </li>
-   
+   <li class='nav-item active'> <a class='btn btn-secondary' href='../../reg/'> Registre-se! </a></li>
     </ul>
+    <li class='nav-item active'>
     <form class='form-inline my-2 my-lg-0'>
       <input class='form-control mr-sm-2' type='search' placeholder='Procurar produto'>
       <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Procurar</button>
     </form>
+    </li>
   </div>
 </nav>";
     }else{

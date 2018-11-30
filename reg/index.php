@@ -30,18 +30,20 @@ require_once("../connection/connection.class.php");
     <span class='navbar-toggler-icon'></span>
   </button>
 
-  <div  class='collapse navbar-collapse' id='navbarTogglerDemo02'> Bem Vindo Visitante.
+  <div  class='collapse navbar-collapse' id='navbarTogglerDemo02'> 
     <ul class='navbar-nav mr-auto mt-2 mt-lg-0'>
       <li class='nav-item active'>
        <form class='nav' action='../login/' method='POST'><table><tr><td><input class='form-control'  name='username' type='number'></td><td><input class='form-control' type='password' name='password'></td><td><input class='btn btn-primary' type='submit' value='Fazer login'></td></tr></table>
         </form>
       </li>
-   
-    </ul>
-    <form class='form-inline my-2 my-lg-0'>
+      <li class='nav-item active'>
+      <form class='form-inline my-2 my-lg-0'>
       <input class='form-control mr-sm-2' type='search' placeholder='Procurar produto'>
-      <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Procurar</button>
-    </form>
+       <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Procurar</button>
+      </form>
+      </li>
+    </ul>
+  
   </div>
 </nav>";
     }else{
