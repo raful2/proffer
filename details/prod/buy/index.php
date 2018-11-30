@@ -195,7 +195,7 @@ if($value['id_user'] == $_POST['session']){
                    'min' => $minuto,
                    'hora' => $hora,
                          );  
-     var_dump($data);
+     
      // $data_conv = $ano."/".$mes."/".$dia." ".$hora.":".$minuto.":".$segundos;
     $data_conv = "now()";
       
@@ -230,7 +230,9 @@ if($value['id_user'] == $_POST['session']){
       $stm_slog->bindParam(':data',$data_conv);
       $stm_slog->bindParam(':descr',$descript_converted2);
       $stm_slog->execute();
- echo "<h2> Comprado com sucesso. </h2><br> ";
+
+
+ echo "<h2> Combine a entrega </h2><br> ";
       
     sleep(3);
     header("location: /proferta/session/welcome/");
