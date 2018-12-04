@@ -20,7 +20,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" ><?php
 session_start();
 
-include("../connection/connection.class.php");
+include  PATH_SESSION . "../connection/connection.class.php";
     $conObj = new Connection();
     $con = $conObj->getConnection();
     if(!isset($_SESSION['id'])){

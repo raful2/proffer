@@ -1,5 +1,5 @@
 <?php 
-include "./connection/connection.class.php";
+include  PATH . "/../connection/connection.class.php";
 $nome = $_POST['nome'];
 $cpf = $_POST['cpf'];
 $senha = $_POST['senha'];

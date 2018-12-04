@@ -19,8 +19,8 @@
  
 <nav class="navbar navbar-expand-lg navbar-light bg-light" ><?php
 session_start();
-
-require_once("../../connection/connection.class.php");
+define("PATH_SESSION", dirname(__FILE__));
+require_once(PATH_SESSION . "/../../connection/connection.class.php");
     $conObj = new Connection();
     $con = $conObj->getConnection();
     if(!isset($_SESSION['id'])){

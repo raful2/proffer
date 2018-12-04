@@ -1,6 +1,7 @@
 <?php
+define("PATH_SESSION", dirname(__FILE__));
 	session_start();
-	include "../../../../connection/connection.class.php";
+	include  PATH_SESSION . "/../../../../connection/connection.class.php";
 	
 	if(!isset($_SESSION['id'])){
 	echo "Impossivel deletar produto sem estar logado.". "<a href='../../../../'> Clique aqui para fazer login</a>";

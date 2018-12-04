@@ -40,13 +40,13 @@ class User {
 	}
 
 	public function getConnectionForUser(){
-		include "../../connection/connection.class.php";
+		include  PATH . "/../../connection/connection.class.php";
 		$conObj = new Connection();
 		$con = $conObj->getConnection();
 		return $con;
 	}
 	public function agree_login($cpf,$senha){
-			include "../connection/connection.class.php";
+		include  PATH . "/../connection/connection.class.php";
 		$conObj = new Connection();
 		$con = $conObj->getConnection();
 
@@ -98,7 +98,7 @@ class User {
 	}
 	public function login($login,$senha){
 		
-		include "../connection/connection.class.php";
+		include  PATH . "/../../connection/connection.class.php";
 		$conObj = new Connection();
 		$con = $conObj->getConnection();
 

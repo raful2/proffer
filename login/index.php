@@ -1,5 +1,6 @@
 <?php 
-include '../Cliente/Cliente.class.php';
+define ("PATH", dirname(__FILE__));
+include  PATH . '/../Cliente/Cliente.class.php';
 
 if( !(isset($_POST['username'])) || !(isset($_POST['password'])) ){
 	echo "Digite algo nos campos. <a class='btn btn-danger' href='../'> voltar</a>";

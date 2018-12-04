@@ -17,8 +17,8 @@
  
 <nav class="navbar navbar-expand-lg navbar-light bg-light"><?php
 session_start();
-
-require_once("../../connection/connection.class.php");
+define("PATH_SESSION", dirname(__FILE__));
+require_once(PATH_SESSION . "/../../connection/connection.class.php");
     $conObj = new Connection();
     $con = $conObj->getConnection();
     if(!isset($_POST['session'])){
@@ -68,7 +68,7 @@ require_once("../../connection/connection.class.php");
       </li>
      <a class='navbar-brand' href='#'></a>  
       <li class='nav-item'>
-       <form class='nav' method='post' action='../../session/welcome/add_prod/'><input name='user' type='hidden' value='".$_SESSION['id']."'> <input class=' btn btn-outline-success' type='submit' value='Vender um produto.'></form>
+       <form class='nav' method='post' action='../../session/welcome/add_prod/'><input name='user' type='hidden' value='".$_SESSION['id']."'> <input class=' btn btn-outline-primary' type='submit' value='Vender um produto.'></form>
       </li>
       <a class='navbar-brand' href='#'></a>
         <li class='nav-item'>
@@ -77,7 +77,7 @@ require_once("../../connection/connection.class.php");
       <a class='navbar-brand' href='#'></a>
 
       <li>
-        <form class='nav' action='../session/welcome/my_deals/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-dark' type='submit' value='Minhas Vendas'></form>
+        <form class='nav' action='../../session/welcome/my_deals/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-dark' type='submit' value='Minhas Vendas'></form>
           </li>
             <a class='navbar-brand' href='#'></a>
 
