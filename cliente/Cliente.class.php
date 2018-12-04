@@ -57,10 +57,16 @@ class User {
 		
 		$sql_login = "SELECT cpf,id,nome,senha FROM userr WHERE cpf = ? AND senha = ?";
 		$stm_login = $con->prepare($sql_login);
-
-		$stm_login->bindValue(1,$cpf);
-		$stm_login->bindValue(2,$senha);
-		$stm_login->execute();
+			try{
+				$stm_login->bindValue(1,$cpf);
+				$stm_login->bindValue(2,$senha);
+				$stm_login->execute();
+			}catch(PDOException $e){
+				echo "";
+				exit("<h1><a href='javascript:window.history.go(-1)'>Digite algo nos campos.</a><br></h1>");
+			}
+		
+		
 		$row2 = $stm_login->rowCount();
 
 		if($row2 > 0){

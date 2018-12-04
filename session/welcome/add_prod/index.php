@@ -5,7 +5,7 @@
 <head>
 	<title>Proferta - Venda um Produto ou Serviço </title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device -width, initial-scale=1">
 	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -20,10 +20,10 @@ session_start();
 
 require_once("../../../connection/connection.class.php");
     $conObj = new Connection();
-    $con = $conObj->getConnection();
+    $con = $conObj->getConnection();                          
    // $_SESSION['id'] = $_POST['user'];
     if(!isset($_SESSION['id'])){
-     echo "  Bem Vindo Visitante. <a href='../../../> Registre-se! </a>";
+     echo "  Bem Vindo Visitante. ";
      echo "<a class='navbar-brand' href='#'></a>
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarTogglerDemo02' aria-controls='navbarTogglerDemo02' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
@@ -34,7 +34,7 @@ require_once("../../../connection/connection.class.php");
       <li class='nav-item active'>
         <a class='nav-link' href='../../'>Login <span class='sr-only'>(current)</span></a>
       </li>
-     
+      <li class='nav-item active'> <a class='btn btn-secondary' href='../../reg/'> Registre-se! </a></li>
     </ul>
     <form class='form-inline my-2 my-lg-0'>
       <input class='form-control mr-sm-2' type='search' placeholder='Procurar produto'>

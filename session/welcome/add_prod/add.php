@@ -23,7 +23,7 @@ require_once("../../../connection/connection.class.php");
     $con = $conObj->getConnection();
    // $_SESSION['id'] = $_POST['user'];
     if(!isset($_SESSION['id'])){
-     echo "  Bem Vindo Visitante.";
+     echo "  Bem Vindo Visitante. <a class='btn btn-secondary' href='../../../> Registre-se! </a>";
      echo "<a class='navbar-brand' href='#'></a>
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarTogglerDemo02' aria-controls='navbarTogglerDemo02' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
@@ -53,7 +53,7 @@ require_once("../../../connection/connection.class.php");
   $stm_qtd->execute();
   $row = $stm_qtd->fetchAll();
   foreach ($row as $key => $value) {
-    echo " <img width='50px' height='50px' src='".$value['profile_img']."'> Bem Vindo(a) > <b> ". $value['nome'] . " </b> > aproveite seus creditos! "    . " <div class='btn btn-primary'> R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</div>";
+    echo " <img width='50px' height='50px' src='".$value['profile_img']."'> <b> ". $value['nome'] . " </b>  "    . " <div class='btn'><font color='green'> <b>R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</font></b></div>";
     echo "<a class='navbar-brand' href='#'></a>
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarTogglerDemo02' aria-controls='navbarTogglerDemo02' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
@@ -66,7 +66,7 @@ require_once("../../../connection/connection.class.php");
       </li>
     <a class='navbar-brand' href='#'></a>
       <li class='nav-item'>
-       <form class='nav' method='post' action='../add_prod'><input name='user' type='hidden' value='".$_SESSION['id']."'> <input class='btn btn-outline-success' type='submit' value='Vender um produto.'></form>
+       <form class='nav' method='post' action='../add_prod'><input name='user' type='hidden' value='".$_SESSION['id']."'> <input class='btn btn-outline-primary' type='submit' value='Vender um produto.'></form>
       </li>
       <a class='navbar-brand' href='#'></a>
       <li class='nav-item'>
@@ -151,7 +151,7 @@ if ($uploadOk == 0) {
 } else {
 
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-          $dir_to_db = "./img_prod/";
+          $dir_to_db = "/img_prod/";
           $dir_to_db = $dir_to_db . basename($_FILES["fileToUpload"]['name']);
           var_dump($dir_to_db);
           $sql_insert = "INSERT INTO prod (nome,qtd,valor,id_user,descript,url) VALUES (:nome,:qtd,:valor,:owner,:descript,:url)";

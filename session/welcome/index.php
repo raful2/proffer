@@ -56,7 +56,7 @@ require_once("../../connection/connection.class.php");
   $stm_prof->execute();
   $row = $stm_prof->fetchAll();
   foreach ($row as $key => $value) {
-    echo " <img width='50px' height='50px' src='".$value['profile_img']."'> Bem Vindo(a) > <b> ". $value['nome'] . " </b> > aproveite seus creditos! "    . " <div class='btn btn-primary'> R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</div>";
+    echo " <img width='50px' height='50px' src='".$value['profile_img']."'>  <b> ". $value['nome'] . " </b>  "    . "<div class='btn'><font color='green'> <b>R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</font></b></div>";
     echo "<a class='navbar-brand' href='#'></a>
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarTogglerDemo02' aria-controls='navbarTogglerDemo02' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
@@ -69,7 +69,7 @@ require_once("../../connection/connection.class.php");
       </li>
     <a class='navbar-brand' href='#'></a>
       <li class='nav-item'>
-       <form class='nav' method='post' action='./add_prod'><input name='user' type='hidden' value='".$_SESSION['id']."'> <input class='btn btn-outline-success' type='submit' value='Vender um produto.'></form>
+       <form class='nav' method='post' action='./add_prod'><input name='user' type='hidden' value='".$_SESSION['id']."'> <input class='btn btn-outline-primary' type='submit' value='Vender um produto.'></form>
       </li>
       <a class='navbar-brand' href='#'></a>
       <li class='nav-item'>
@@ -106,7 +106,7 @@ require_once("../../connection/connection.class.php");
   <p>Compre e Venda, Produtos e Serviços.</p> 
 </div>
 
-<div class="container" align='center'>
+<div class="container">
   <!-- VISUALIZANDO PRODUTOS DE TODOS -->
   <?php
 

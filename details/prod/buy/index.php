@@ -52,7 +52,7 @@ require_once("../../../connection/connection.class.php");
   $stm_qtd->execute();
   $row = $stm_qtd->fetchAll();
   foreach ($row as $key => $value) {
-    echo " <img width='50px' height='50px' src='../../../session/welcome/".$value['profile_img']."'> Bem Vindo <b>". $value['nome'] . "</b> aproveite seus creditos! "    . " <div class='btn btn-primary'> R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</div>";
+    echo " <img width='50px' height='50px' src='../../../session/welcome/".$value['profile_img']."'> <b>". $value['nome'] . "</b>  "    . " <div class='btn'><font color='green'> <b>R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</font></b></div>";
     echo "<a class='navbar-brand' href='#'></a>
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarTogglerDemo02' aria-controls='navbarTogglerDemo02' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
@@ -69,11 +69,16 @@ require_once("../../../connection/connection.class.php");
       </li>
       <a class='navbar-brand' href='#'></a>
         <li class='nav-item'>
-        <form class='nav' action='./' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-warning ' disabled type='submit' value='Meus Produtos'></form>
+        <form class='nav' action='../../../session/welcome/my_prod/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-warning ' type='submit' value='Meus Produtos'></form>
       </li>
         <a class='navbar-brand' href='#'></a>
       <li class='nav-item'>
-        <form class='nav' action='./my_deals/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-dark' type='submit' value='Minhas Vendas'></form>
+        <form class='nav' action='../../../session/welcome/my_deals/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-dark' type='submit' value='Minhas Vendas'></form>
+      </li>
+      <a class='navbar-brand' href='#'></a>
+
+      <li class='nav-item'>
+        <form class='nav' action='../../../session/welcome/my_deals2/' method='POST'><input name='owner' type='hidden' value='".$_SESSION['id']."'><input class='btn btn-outline-dark' type='submit' value='Minhas Compras'></form>
       </li>
         <a class='navbar-brand' href='#'></a>
       <li class='nav-item'><a style='background-color: grey' class='btn btn-outline-light' href='../../../session/welcome/'>Página Inicial</a></li>

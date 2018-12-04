@@ -55,7 +55,7 @@ require_once("../../connection/connection.class.php");
   $stm_qtd->execute();
   $row = $stm_qtd->fetchAll();
   foreach ($row as $key => $value) {
-    echo " <img width='50px' height='50px' src='../../session/welcome/".$value['profile_img']."'> Bem Vindo(a) <b>". $value['nome'] . "</b> aproveite seus creditos! "    . " <div class='btn btn-primary'> R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</div>";
+    echo " <img width='50px' height='50px' src='../../session/welcome/".$value['profile_img']."'> <b>". $value['nome'] . "</b>  "    . " <div class='btn'><font color='green'> <b>R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</font></b></div>";
     echo "<a class='navbar-brand' href='#'></a>
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarTogglerDemo02' aria-controls='navbarTogglerDemo02' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
@@ -124,7 +124,7 @@ echo "
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>";
    
 }else{
-   $sql_prod = "SELECT prod.nome as nome, userr.nome as uname, prod.id_user,prod.qtd, prod.id,prod.descript,prod.valor, prod.url FROM prod JOIN userr ON prod.id_user = userr.cpf  WHERE prod.id = ?";
+   $sql_prod = "SELECT prod.nome as nome,userr.ddd,userr.phone,userr.email, userr.nome as uname, prod.id_user,prod.qtd, prod.id,prod.descript,prod.valor, prod.url FROM prod JOIN userr ON prod.id_user = userr.cpf  WHERE prod.id = ?";
   $stm_prod = $con->prepare($sql_prod);
   $stm_prod->bindValue(1,$_POST['prod']);
   
@@ -143,6 +143,7 @@ echo " <div class='container' align='center'>
     Anunciante: <h5 class='card-title'>".$value['uname']."</h5>
     <p class='card-text'> Em estoque: ".$value['qtd']."</p>
     <p class='card-text'>".$value['descript']."</p>
+    <p class='card-text'>".$value['ddd']." - ".$value['phone']." - ". $value['email']."</p>
         <p class='card-text'> R$".number_format((float)$value['valor'], 2, ',', '.')."</p>
 
     <form action='../../details/prod/buy/' method='POST'>

@@ -31,11 +31,9 @@ require_once("../../../connection/connection.class.php");
   <div class='collapse navbar-collapse' id='navbarTogglerDemo02'>
     <ul class='navbar-nav mr-auto mt-2 mt-lg-0'>
       <li class='nav-item active'>
-        <a class='nav-link' href='../../'>Login <span class='sr-only'>(current)</span></a>
+        <a class='btn btn-primary' href='../../../session/welcome'>Login <span class='sr-only'>(current)</span></a> >
       </li>
-      <li class='nav-item'>
-        <a class='nav-link disabled' href='#'>Disabled</a>
-      </li>
+      <li class='nav-item active'> <a class='btn btn-secondary' href='../../../reg/'> Registre-se! </a></li>
     </ul>
     <form class='form-inline my-2 my-lg-0'>
       <input class='form-control mr-sm-2' type='search' placeholder='Procurar produto'>
@@ -52,7 +50,7 @@ require_once("../../../connection/connection.class.php");
   $stm_qtd->execute();
   $row = $stm_qtd->fetchAll();
   foreach ($row as $key => $value) {
-    echo " <img width='50px' height='50px' src='../".$value['profile_img']."'> Bem Vindo(a) > <b> ". $value['nome'] . " </b> > aproveite seus creditos! "    . " <div class='btn btn-primary'> R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</div>";
+    echo " <img width='50px' height='50px' src='../".$value['profile_img']."'><b>". $value['nome'] . "</b>"    . " <div class='btn'><font color='green'> <b>R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</font></b></div>";
 
     echo "<a class='navbar-brand' href='#'></a>
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarTogglerDemo02' aria-controls='navbarTogglerDemo02' aria-expanded='false' aria-label='Toggle navigation'>
@@ -125,8 +123,7 @@ if(!isset($_SESSION['id'])){
   $stm_qtd->bindValue(1,$_SESSION['id']);
 $stm_qtd->execute();
   $row = $stm_qtd->fetchAll();
-  $stm_qtd->execute();
-  $row = $stm_qtd->fetchAll();
+  
 
  
 
@@ -139,7 +136,7 @@ $stm_qtd->execute();
 echo "     
               <div class='col-md-3' >
                 <div class='card'  style='width: 18rem; height: 40rem'>
-                     <img width='200px' height='200px' class='card-img-top' src='..".$value['url']."'>
+                     <img width='200px' height='200px' class='card-img-top' src='../".$value['url']."'>
                       <div class='card-body mb'>
                         <div><h5 class='card-title'>".$value['nome']."</h5></div>
                         <div ><p class='card-text'>".$value['descript']."</p></div>

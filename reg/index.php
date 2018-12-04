@@ -17,7 +17,8 @@
 
  
  
-<nav class="navbar navbar-expand-lg navbar-light bg-light" ><?php
+<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+<?php
 session_start();
 
 require_once("../connection/connection.class.php");
@@ -31,19 +32,28 @@ require_once("../connection/connection.class.php");
   </button>
 
   <div  class='collapse navbar-collapse' id='navbarTogglerDemo02'> 
-  <a class='navbar-brand'  href='../session/welcome'><img width='50' height='50' src='../image/home.png'></a>
+  
     <ul class='navbar-nav mr-auto mt-2 mt-lg-0'>
-    <li class='nav-item active'></li>
+    <li class='nav-item active'><a class='navbar-brand'   href='../session/welcome'><img width='50px' height='50px' src='../image/home.png'></a></li>
       <li class='nav-item active'>
-       <form class='nav' action='../login/' method='POST'><table><tr><td><input class='form-control'  name='username' type='number'></td><td><input class='form-control' type='password' name='password'></td><td><input class='btn btn-primary' type='submit' value='Fazer login'></td></tr></table>
+       <form class='nav' action='../login/' method='POST'>
+       <table>
+           <tr>
+            <td>
+              <input class='form-control'  name='username' type='number'>
+            </td>
+            <td>
+              <input class='form-control' type='password' name='password'>
+            </td>
+            <td>
+             <input class='btn btn-primary' type='submit' value='Fazer login'>
+            </td>
+          </tr>
+          </table>
         </form>
       </li>
-      <li class='nav-item active'>
-      <form class='form-inline my-2 my-lg-0'>
-      <input class='form-control mr-sm-2' type='search' placeholder='Procurar produto'>
-       <button class='btn btn-outline-success my-2 my-sm-0' type='submit'>Procurar</button>
-      </form>
-      </li>
+     
+      
     </ul>
   
   </div>
@@ -57,7 +67,7 @@ require_once("../connection/connection.class.php");
   $stm_prof->execute();
   $row = $stm_prof->fetchAll();
   foreach ($row as $key => $value) {
-    echo " <img width='50px' height='50px' src='../session/welcome".$value['profile_img']."'> Bem Vindo(a) > <b> ". $value['nome'] . " </b> > aproveite seus creditos! "    . " <div class='btn btn-primary'> R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</div>";
+    echo " <img width='50px' height='50px' src='../session/welcome".$value['profile_img']."'> <b> ". $value['nome'] . " </b> "    . "<div class='btn'><font color='green'> <b>R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</font></b></div>";
     echo "<a class='navbar-brand' href='#'></a>
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarTogglerDemo02' aria-controls='navbarTogglerDemo02' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
@@ -106,15 +116,15 @@ require_once("../connection/connection.class.php");
    </h1>
   <p>Compre e Venda, Produtos e Serviços.</p> 
 </div>
-
-<div class="container" align='center'>
+<center>
+<div class="container">
   <!-- VISUALIZANDO PRODUTOS DE TODOS -->
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="container-fluid">
+<div class="container-fluid" >
   <form action="../reg.php" method="post" enctype='multipart/form-data'>
 
     <section class="container">
@@ -136,13 +146,20 @@ require_once("../connection/connection.class.php");
 					<label> CPF</label>
 					<input type="number"  maxlenght="11" name="cpf" class="form-control"  placeholder="Entre com seu CPF">
 				</div>
+        <div class="form-group col-lg-6">
+					<label> DDD</label>
+					<input type="number"  maxlenght="3" name="code" class="form-control"  placeholder="088">
+          <label> Telefone celular ou Fixo.</label>
+					<input type="number"  maxlenght="9" name="phone" class="form-control"  placeholder="9 99887766">
+				</div>
+     
 							
 				<div class="form-group col-lg-6">
 					<label>Email Address</label>
 					<input type="text" name='email' id="email" class="form-control"  placeholder="meuemail@mail.com">
 				</div>
-        <div>Sua foto<input class='form-control' required type="file" name="fileToUpload" id="fileToUpload"></div>
-				
+        <div class="form-group col-lg-6">Sua foto<input class='form-control' required type="file" name="fileToUpload" id="fileToUpload"></div>
+    
 							
 				
 			
@@ -150,24 +167,28 @@ require_once("../connection/connection.class.php");
 							
 			
 			</div>
-		
-			 <div class="col-md-6">
-       <!--
-				<h3 class="dark-grey">Terms and Conditions</h3>
+      <div class="form-group col-lg-6">
+      
+  <label for="descricao">Sobre você:</label>
+  <input type="text" class="form-control"  name="descricao" placeholder="EXEMPLO: Estudo Tecnologias da Informação, na Faculdade Paraíso do Ceará.">
+
+</div>
+	
+			 <div class="form-group col-lg-12" align='left'>
+      
+				<h3 class="dark-grey">Termos e Condições</h3>
 				<p>
-					By clicking on "Register" you agree to The Company's' Terms and Conditions
+					Clicando em "Registrar" você concorda com nossos Termos e Condições.
+				</p>  
+				<p>
+				
 				</p>
 				<p>
-					While rare, prices are subject to change based on exchange rate fluctuations - 
-					should such a fluctuation happen, we may request an additional payment. You have the option to request a full refund or to pay the new price. (Paragraph 13.5.8)
-				</p>
-				<p>
-					Should there be an error in the description or pricing of a product, we will provide you with a full refund (Paragraph 13.5.6)
 				</p>
 				<p>
 					Acceptance of an order by us is dependent on our suppliers ability to provide the product. (Paragraph 13.5.6)
 				</p>
-				 -->
+				
         
 				<button type="submit" class="btn btn-primary">Cadastre-se !</button>
 		 </div>
@@ -177,6 +198,7 @@ require_once("../connection/connection.class.php");
 </div>
 
 </div>
+</center>
 <script>
 var cpfMascara = function (val) {
    return val.replace(/\D/g, '').length > 11 ? '00.000.000/0000-00' : '000.000.000-009';

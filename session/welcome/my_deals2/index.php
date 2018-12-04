@@ -33,9 +33,7 @@ require_once("../../../connection/connection.class.php");
       <li class='nav-item active'>
         <a class='nav-link' href='../../'>Login <span class='sr-only'>(current)</span></a>
       </li>
-      <li class='nav-item'>
-        <a class='nav-link disabled' href='#'>Disabled</a>
-      </li>
+      <li class='nav-item active'> <a class='btn btn-secondary' href='../../../reg/'> Registre-se! </a></li>
     </ul>
     <form class='form-inline my-2 my-lg-0'>
       <input class='form-control mr-sm-2' type='search' placeholder='Procurar produto'>
@@ -52,7 +50,7 @@ require_once("../../../connection/connection.class.php");
   $stm_qtd->execute();
   $row = $stm_qtd->fetchAll();
   foreach ($row as $key => $value) {
-    echo " <img width='50px' height='50px' src='../".$value['profile_img']."'> Bem Vindo(a) > <b> ". $value['nome'] . " </b> > aproveite seus creditos! "    . " <div class='btn btn-primary'> R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</div>";
+    echo " <img width='50px' height='50px' src='../".$value['profile_img']."'> <b> ". $value['nome'] . " </b>  "    . "<div class='btn'><font color='green'> <b>R$ ". number_format((float)$value['saldo'], 2, ',', '.') . "</font></b></div>";
     echo "<a class='navbar-brand' href='#'></a>
   <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarTogglerDemo02' aria-controls='navbarTogglerDemo02' aria-expanded='false' aria-label='Toggle navigation'>
     <span class='navbar-toggler-icon'></span>
@@ -65,7 +63,7 @@ require_once("../../../connection/connection.class.php");
       </li>
     <a class='navbar-brand' href='#'></a>
       <li class='nav-item'>
-       <form class='nav' method='post' action='../add_prod'><input name='user' type='hidden' value='".$_SESSION['id']."'> <input class='btn btn-outline-success' type='submit' value='Vender um produto.'></form>
+       <form class='nav' method='post' action='../add_prod'><input name='user' type='hidden' value='".$_SESSION['id']."'> <input class='btn btn-outline-primary' type='submit' value='Vender um produto.'></form>
       </li>
       <a class='navbar-brand' href='#'></a>
       <li class='nav-item'>

@@ -4,6 +4,9 @@ $nome = $_POST['nome'];
 $cpf = $_POST['cpf'];
 $senha = $_POST['senha'];
 $email = $_POST['email'];
+$ddd = $_POST['code'];
+$phone = $_POST['phone'];
+//$descript = $_POST['descricao'];
 
 $conObj = new Connection();
 $sql_ver = "SELECT * FROM userr WHERE cpf = ?";
@@ -60,13 +63,16 @@ if ($uploadOk == 0) {
     $dir_to_db = "user_img/";
           $dir_to_db = $dir_to_db . basename($_FILES["fileToUpload"]['name']);
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    $sql_newuser = "INSERT INTO userr (nome, cpf, email, senha, profile_img) VALUES (:nome, :cpf, :email, :senha, :img)";
+    $sql_newuser = "INSERT INTO userr (nome, cpf, email, senha, profile_img, ddd, phone) VALUES (:nome, :cpf, :email, :senha, :img, :ddd, :phone)";
     $stm_newuser = $con->prepare($sql_newuser);
     $stm_newuser->bindParam(':nome', $nome);
     $stm_newuser->bindParam(':cpf',  $cpf);
     $stm_newuser->bindParam(':email',$email);
     $stm_newuser->bindParam(':senha',$senha);
     $stm_newuser->bindParam(':img',$dir_to_db);
+    $stm_newuser->bindParam(':ddd',$ddd);
+    $stm_newuser->bindParam(':phone',$phone);
+    //$stm_newuser->bindParam(':descript',$descript);
     $stm_newuser->execute();
     echo "Cadastrado com Sucesso.";
     }
